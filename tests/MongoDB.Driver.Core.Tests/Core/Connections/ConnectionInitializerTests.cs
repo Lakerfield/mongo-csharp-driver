@@ -62,7 +62,7 @@ namespace MongoDB.Driver.Core.Connections
                 act = () => _subject.InitializeConnection(null, CancellationToken.None);
             }
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]

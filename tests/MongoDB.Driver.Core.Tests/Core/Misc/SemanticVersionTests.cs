@@ -79,7 +79,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => SemanticVersion.Parse(versionString);
 
-            act.ShouldThrow<FormatException>();
+            act.Should().Throw<FormatException>();
         }
 
         [Theory]

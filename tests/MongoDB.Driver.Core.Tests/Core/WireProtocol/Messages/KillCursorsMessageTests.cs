@@ -41,7 +41,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages
         public void Constructor_with_null_cursorIds_should_throw()
         {
             Action action = () => new KillCursorsMessage(_requestId, null);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

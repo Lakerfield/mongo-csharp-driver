@@ -38,7 +38,7 @@ namespace MongoDB.Driver.GridFS.Tests
         {
             Action action = () => new GridFSMD5Exception(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
     }
 }

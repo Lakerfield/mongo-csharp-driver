@@ -115,7 +115,7 @@ namespace MongoDB.Bson.Tests.ObjectModel
         {
             Action action = () => { BsonTimestamp.Create(null); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]

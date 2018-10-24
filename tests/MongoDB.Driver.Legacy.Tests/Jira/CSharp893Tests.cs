@@ -37,7 +37,7 @@ namespace MongoDB.Driver.Tests.Jira
 
     public abstract class CSharp893DictionaryTestsBase<C>
     {
-        public C TestEmptyKey(C c, string expected)
+        public C Test(C c, string expected)
         {
             var json = c.ToJson();
             Assert.Equal(expected.Replace("'", "\""), json);
@@ -62,7 +62,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<object, object> { { "", 2 } } };
-            var rehydrated = TestEmptyKey(c, "{ '_id' : 1, 'd' : [['', 2]] }");
+            var rehydrated = Test(c, "{ '_id' : 1, 'd' : [['', 2]] }");
             Assert.Equal(1, rehydrated._id);
             Assert.Equal(1, rehydrated.d.Count);
             Assert.Equal(2, rehydrated.d[""]);
@@ -82,7 +82,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<object, object> { { "", 2 } } };
-            var rehydrated = TestEmptyKey(c, "{ '_id' : 1, 'd' : [{ 'k' : '', 'v' : 2 }] }");
+            var rehydrated = Test(c, "{ '_id' : 1, 'd' : [{ 'k' : '', 'v' : 2 }] }");
             Assert.Equal(1, rehydrated._id);
             Assert.Equal(1, rehydrated.d.Count);
             Assert.Equal(2, rehydrated.d[""]);
@@ -102,7 +102,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<object, object> { { "", 2 } } };
-            Assert.Throws<BsonSerializationException>(() => TestEmptyKey(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
+            Assert.Throws<BsonSerializationException>(() => Test(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
         }
     }
 
@@ -118,7 +118,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<object, object> { { "", 2 } } };
-            Assert.Throws<BsonSerializationException>(() => TestEmptyKey(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
+            Assert.Throws<BsonSerializationException>(() => Test(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
         }
     }
 
@@ -135,7 +135,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<string, object> { { "", 2 } } };
-            var rehydrated = TestEmptyKey(c, "{ '_id' : 1, 'd' : [['', 2]] }");
+            var rehydrated = Test(c, "{ '_id' : 1, 'd' : [['', 2]] }");
             Assert.Equal(1, rehydrated._id);
             Assert.Equal(1, rehydrated.d.Count);
             Assert.Equal(2, rehydrated.d[""]);
@@ -155,7 +155,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<string, object> { { "", 2 } } };
-            var rehydrated = TestEmptyKey(c, "{ '_id' : 1, 'd' : [{ 'k' : '', 'v' : 2 }] }");
+            var rehydrated = Test(c, "{ '_id' : 1, 'd' : [{ 'k' : '', 'v' : 2 }] }");
             Assert.Equal(1, rehydrated._id);
             Assert.Equal(1, rehydrated.d.Count);
             Assert.Equal(2, rehydrated.d[""]);
@@ -175,7 +175,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<string, object> { { "", 2 } } };
-            Assert.Throws<BsonSerializationException>(() => TestEmptyKey(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
+            Assert.Throws<BsonSerializationException>(() => Test(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
         }
     }
 
@@ -191,7 +191,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Dictionary<string, object> { { "", 2 } } };
-            Assert.Throws<BsonSerializationException>(() => TestEmptyKey(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
+            Assert.Throws<BsonSerializationException>(() => Test(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
         }
     }
 
@@ -208,7 +208,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Hashtable { { "", 2 } } };
-            var rehydrated = TestEmptyKey(c, "{ '_id' : 1, 'd' : [['', 2]] }");
+            var rehydrated = Test(c, "{ '_id' : 1, 'd' : [['', 2]] }");
             Assert.Equal(1, rehydrated._id);
             Assert.Equal(1, rehydrated.d.Count);
             Assert.Equal(2, rehydrated.d[""]);
@@ -228,7 +228,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Hashtable { { "", 2 } } };
-            var rehydrated = TestEmptyKey(c, "{ '_id' : 1, 'd' : [{ 'k' : '', 'v' : 2 }] }");
+            var rehydrated = Test(c, "{ '_id' : 1, 'd' : [{ 'k' : '', 'v' : 2 }] }");
             Assert.Equal(1, rehydrated._id);
             Assert.Equal(1, rehydrated.d.Count);
             Assert.Equal(2, rehydrated.d[""]);
@@ -248,7 +248,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Hashtable { { "", 2 } } };
-            Assert.Throws<BsonSerializationException>(() => TestEmptyKey(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
+            Assert.Throws<BsonSerializationException>(() => Test(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
         }
     }
 
@@ -264,7 +264,7 @@ namespace MongoDB.Driver.Tests.Jira
         public void TestEmptyKey()
         {
             var c = new C { _id = 1, d = new Hashtable { { "", 2 } } };
-            Assert.Throws<BsonSerializationException>(() => TestEmptyKey(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
+            Assert.Throws<BsonSerializationException>(() => Test(c, "{ '_id' : 1, 'd' : { '' : 2 } }"));
         }
     }
 }

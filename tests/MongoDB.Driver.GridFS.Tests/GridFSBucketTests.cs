@@ -57,7 +57,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => new GridFSBucket(null, options);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("database");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("database");
         }
 
         [Fact]
@@ -173,7 +173,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
 
         [Theory]
@@ -195,7 +195,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
 
         [Theory]
@@ -215,7 +215,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.DownloadAsBytesByName(null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [Theory]
@@ -238,7 +238,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
 
         [Theory]
@@ -261,7 +261,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("destination");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("destination");
         }
 
         [Theory]
@@ -282,7 +282,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.DownloadToStream(id, null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("destination");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("destination");
         }
 
         [Theory]
@@ -303,7 +303,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.DownloadToStreamByName(filename, null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("destination");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("destination");
         }
 
         [Theory]
@@ -324,7 +324,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.DownloadToStreamByName(null, destination);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [SkippableTheory]
@@ -397,7 +397,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Find(null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filter");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filter");
         }
 
         [Theory]
@@ -419,7 +419,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
 
         [Theory]
@@ -439,7 +439,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.OpenDownloadStreamByName(null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [Theory]
@@ -459,7 +459,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.OpenUploadStream(null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [Fact]
@@ -499,7 +499,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
 
         [Theory]
@@ -522,7 +522,7 @@ namespace MongoDB.Driver.GridFS.Tests
             }
 #pragma warning restore
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("newFilename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("newFilename");
         }
 
         [Theory]
@@ -543,7 +543,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Rename(id, null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("newFilename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("newFilename");
         }
 
         [Theory]
@@ -564,7 +564,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.UploadFromBytes(null, source);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [Theory]
@@ -585,7 +585,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.UploadFromBytes(filename, null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("source");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("source");
         }
 
         [Theory]
@@ -606,7 +606,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.UploadFromStream(null, source);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [Theory]
@@ -627,7 +627,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.UploadFromStream(filename, null);
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("source");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("source");
         }
 
         // private methods

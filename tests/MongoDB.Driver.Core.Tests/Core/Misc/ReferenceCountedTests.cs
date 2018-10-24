@@ -41,7 +41,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => new ReferenceCounted<IDisposable>(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

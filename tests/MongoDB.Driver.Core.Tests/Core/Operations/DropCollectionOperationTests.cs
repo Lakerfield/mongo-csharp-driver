@@ -57,7 +57,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => { new DropCollectionOperation(null, _messageEncoderSettings); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [Fact]

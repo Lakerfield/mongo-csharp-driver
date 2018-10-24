@@ -56,7 +56,7 @@ namespace MongoDB.Driver.Tests.Operations
         {
             Action action = () => new CurrentOpUsingFindOperation(null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
         }
 
         [Fact]

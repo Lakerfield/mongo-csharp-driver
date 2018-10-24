@@ -42,7 +42,7 @@ namespace MongoDB.Driver.Core.Bindings
         {
             Action act = () => new WritableServerBinding(null, NoCoreSession.NewHandle());
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace MongoDB.Driver.Core.Bindings
 
             Action act = () => new WritableServerBinding(cluster, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -94,7 +94,7 @@ namespace MongoDB.Driver.Core.Bindings
                 act = () => subject.GetReadChannelSource(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]
@@ -143,7 +143,7 @@ namespace MongoDB.Driver.Core.Bindings
                 act = () => subject.GetWriteChannelSource(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]

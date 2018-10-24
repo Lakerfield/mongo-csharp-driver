@@ -25,7 +25,7 @@ using Xunit;
 
 namespace MongoDB.Driver.Core.Servers
 {
-    class ServerDescriptionTests
+    public class ServerDescriptionTests
     {
         #region static
         // static fields

@@ -63,7 +63,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { new DropIndexOperation(null, indexName, _messageEncoderSettings); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [Fact]
@@ -71,7 +71,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => { new DropIndexOperation(_collectionNamespace, (string)null, _messageEncoderSettings); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("indexName");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("indexName");
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { new DropIndexOperation(_collectionNamespace, indexName, null); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
         }
 
         [Fact]
@@ -105,7 +105,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { new DropIndexOperation(null, keys, _messageEncoderSettings); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [Fact]
@@ -113,7 +113,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => { new DropIndexOperation(_collectionNamespace, (BsonDocument)null, _messageEncoderSettings); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("keys");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("keys");
         }
 
         [Fact]
@@ -123,7 +123,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { new DropIndexOperation(_collectionNamespace, keys, null); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
         }
 
         [Fact]
@@ -245,7 +245,7 @@ namespace MongoDB.Driver.Core.Operations
             var subject = new DropIndexOperation(_collectionNamespace, indexName, _messageEncoderSettings);
 
             Action action = () => ExecuteOperation(subject, null, async);
-            var ex = action.ShouldThrow<ArgumentNullException>().Subject.Single();
+            var ex = action.Should().Throw<ArgumentNullException>().Subject.Single();
 
             ex.ParamName.Should().Be("binding");
         }

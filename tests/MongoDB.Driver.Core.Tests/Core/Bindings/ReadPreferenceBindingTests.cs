@@ -43,7 +43,7 @@ namespace MongoDB.Driver.Core.Bindings
         {
             Action act = () => new ReadPreferenceBinding(null, ReadPreference.Primary, NoCoreSession.NewHandle());
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace MongoDB.Driver.Core.Bindings
         {
             Action act = () => new ReadPreferenceBinding(_mockCluster.Object, null, NoCoreSession.NewHandle());
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace MongoDB.Driver.Core.Bindings
         {
             Action act = () => new ReadPreferenceBinding(_mockCluster.Object, ReadPreference.Primary, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace MongoDB.Driver.Core.Bindings
                 act = () => subject.GetReadChannelSource(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]

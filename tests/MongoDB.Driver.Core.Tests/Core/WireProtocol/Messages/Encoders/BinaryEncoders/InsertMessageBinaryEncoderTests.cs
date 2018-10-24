@@ -72,7 +72,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
             using (var stream = new MemoryStream())
             {
                 Action action = () => new InsertMessageBinaryEncoder<BsonDocument>(stream, __messageEncoderSettings, __serializer);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -80,7 +80,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
         public void Constructor_should_throw_if_stream_is_null()
         {
             Action action = () => new InsertMessageBinaryEncoder<BsonDocument>(null, __messageEncoderSettings, __serializer);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
             using (var stream = new MemoryStream())
             {
                 Action action = () => new InsertMessageBinaryEncoder<BsonDocument>(stream, __messageEncoderSettings, null);
-                action.ShouldThrow<ArgumentNullException>();
+                action.Should().Throw<ArgumentNullException>();
             }
         }
 
@@ -234,7 +234,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
             {
                 var subject = new InsertMessageBinaryEncoder<BsonDocument>(stream, __messageEncoderSettings, __serializer);
                 Action action = () => subject.WriteMessage(null);
-                action.ShouldThrow<ArgumentNullException>();
+                action.Should().Throw<ArgumentNullException>();
             }
         }
 

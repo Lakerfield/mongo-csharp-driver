@@ -60,7 +60,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerMonitor(null, _endPoint, _mockConnectionFactory.Object, Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerMonitor(_serverId, null, _mockConnectionFactory.Object, Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerMonitor(_serverId, _endPoint, null, Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerMonitor(_serverId, _endPoint, _mockConnectionFactory.Object, Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

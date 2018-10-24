@@ -47,7 +47,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Buffer; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -144,7 +144,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => new ByteBufferStream(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Fact]
@@ -196,7 +196,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Flush();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -216,7 +216,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Length; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -237,7 +237,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Position; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -260,7 +260,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Position = value;
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -270,7 +270,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Position = 1;
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [SkippableFact]
@@ -286,7 +286,7 @@ namespace MongoDB.Bson.Tests.IO
 
                 Action action = () => subject.Write(bytes, 0, bytes.Length); // indirectly calls private PrepareToWrite method
 
-                action.ShouldThrow<IOException>();
+                action.Should().Throw<IOException>();
             }
         }
 
@@ -364,7 +364,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Read(null, 0, 0);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Theory]
@@ -381,7 +381,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Read(destination, offset, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -396,7 +396,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Read(destination, offset, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Fact]
@@ -407,7 +407,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Read(destination, 0, 1);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -459,7 +459,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadByte();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -489,7 +489,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadCString(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("encoding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("encoding");
         }
 
         [Fact]
@@ -499,7 +499,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadCString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -534,7 +534,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadCStringBytes();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -544,7 +544,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadCStringBytes();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -579,7 +579,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadDecimal128();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -589,7 +589,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadDecimal128();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -621,7 +621,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadDouble();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -631,7 +631,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadDouble();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -674,7 +674,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadInt32();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -684,7 +684,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadInt32();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -727,7 +727,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadInt64();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -737,7 +737,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadInt64();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -782,7 +782,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadObjectId();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -792,7 +792,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadObjectId();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -828,7 +828,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadSlice();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -838,7 +838,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadSlice();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -866,7 +866,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadString(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("encoding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("encoding");
         }
 
         [Theory]
@@ -882,7 +882,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -893,7 +893,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<FormatException>();
+            action.Should().Throw<FormatException>();
         }
 
         [Fact]
@@ -903,7 +903,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -920,7 +920,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.ReadString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<FormatException>();
+            action.Should().Throw<FormatException>();
         }
 
         [Theory]
@@ -952,7 +952,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Seek(0, (SeekOrigin)(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("origin");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("origin");
         }
 
         [Theory]
@@ -972,7 +972,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Seek(offset, origin);
 
-            action.ShouldThrow<IOException>();
+            action.Should().Throw<IOException>();
         }
 
         [Fact]
@@ -982,7 +982,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Seek(0, SeekOrigin.Begin);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -994,7 +994,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetLength(0);
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         [Theory]
@@ -1036,7 +1036,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetLength(length);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -1046,7 +1046,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetLength(0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1080,7 +1080,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SkipCString();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -1090,7 +1090,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SkipCString();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -1105,7 +1105,7 @@ namespace MongoDB.Bson.Tests.IO
 
                 Action action = () => subject.ReadSlice(); // indirectly calls private ThrowIfEndOfStream method
 
-                action.ShouldThrow<EndOfStreamException>();
+                action.Should().Throw<EndOfStreamException>();
             }
         }
 
@@ -1162,7 +1162,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Write(null, 0, 0);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Theory]
@@ -1185,7 +1185,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Write(source, offset, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Fact]
@@ -1198,7 +1198,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Write(source, 0, 0);
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         [Theory]
@@ -1212,7 +1212,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Write(source, offset, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Fact]
@@ -1223,7 +1223,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Write(source, 0, 0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1249,7 +1249,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteByte(0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1292,7 +1292,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteCString("");
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -1302,7 +1302,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteCString(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -1318,7 +1318,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteCString(value);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -1331,7 +1331,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteCString(value);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -1356,7 +1356,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteCStringBytes(new byte[0]);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Fact]
@@ -1366,7 +1366,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteCStringBytes(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -1397,7 +1397,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteDecimal128(Decimal128.Zero);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1424,7 +1424,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteDouble(0.0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1453,7 +1453,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteInt32(0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1480,7 +1480,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteInt64(0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1508,7 +1508,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteObjectId(ObjectId.Empty);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         [Theory]
@@ -1542,7 +1542,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.WriteString("", Utf8Encodings.Strict);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteBufferStream");
         }
 
         // helper methods

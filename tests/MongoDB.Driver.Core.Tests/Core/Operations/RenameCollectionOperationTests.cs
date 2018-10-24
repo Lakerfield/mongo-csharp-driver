@@ -69,7 +69,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new RenameCollectionOperation(null, _newCollectionNamespace, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new RenameCollectionOperation(_collectionNamespace, null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("newCollectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("newCollectionNamespace");
         }
 
         [Fact]
@@ -213,7 +213,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, async);
 
-            action.ShouldThrow<MongoCommandException>();
+            action.Should().Throw<MongoCommandException>();
         }
 
         [Theory]
@@ -226,7 +226,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, null, async);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("binding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("binding");
         }
 
         [SkippableTheory]

@@ -76,7 +76,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.CommandValidator = null;
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -134,7 +134,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => new FakeCommandOperation<BsonDocument>(databaseNamespace, command, resultSerializer, messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("command");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("command");
         }
 
         [Fact]
@@ -147,7 +147,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => new FakeCommandOperation<BsonDocument>(databaseNamespace, command, resultSerializer, messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
         }
 
         [Fact]
@@ -160,7 +160,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => new FakeCommandOperation<BsonDocument>(databaseNamespace, command, resultSerializer, messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("resultSerializer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("resultSerializer");
         }
 
         [Fact]

@@ -53,7 +53,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.BucketName = "";
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.BucketName = null;
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -96,7 +96,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.ChunkSizeBytes = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]

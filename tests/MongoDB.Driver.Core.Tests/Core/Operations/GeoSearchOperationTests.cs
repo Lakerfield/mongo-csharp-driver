@@ -36,7 +36,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new GeoSearchOperation<BsonDocument>(null, 5, BsonDocumentSerializer.Instance, _messageEncoderSettings);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new GeoSearchOperation<BsonDocument>(_collectionNamespace, null, BsonDocumentSerializer.Instance, _messageEncoderSettings);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new GeoSearchOperation<BsonDocument>(_collectionNamespace, 5, null, _messageEncoderSettings);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new GeoSearchOperation<BsonDocument>(_collectionNamespace, 5, BsonDocumentSerializer.Instance, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]

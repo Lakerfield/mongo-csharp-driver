@@ -54,35 +54,35 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages
         public void Constructor_with_negative_maxBatchCount_should_throw()
         {
             Action action = () => new InsertMessage<BsonDocument>(_requestId, _collectionNamespace, _serializer, _documentSource, -1, _maxMessageSize, _continueOnError);
-            action.ShouldThrow<ArgumentOutOfRangeException>();
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Fact]
         public void Constructor_with_negative_maxMessageSize_should_throw()
         {
             Action action = () => new InsertMessage<BsonDocument>(_requestId, _collectionNamespace, _serializer, _documentSource, _maxBatchCount, -1, _continueOnError);
-            action.ShouldThrow<ArgumentOutOfRangeException>();
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Fact]
         public void Constructor_with_null_collectionNamespace_should_throw()
         {
             Action action = () => new InsertMessage<BsonDocument>(_requestId, null, _serializer, _documentSource, _maxBatchCount, _maxMessageSize, _continueOnError);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_with_null_documents_should_throw()
         {
             Action action = () => new InsertMessage<BsonDocument>(_requestId, _collectionNamespace, _serializer, null, _maxBatchCount, _maxMessageSize, _continueOnError);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_with_null_serializer_should_throw()
         {
             Action action = () => new InsertMessage<BsonDocument>(_requestId, _collectionNamespace, null, _documentSource, _maxBatchCount, _maxMessageSize, _continueOnError);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

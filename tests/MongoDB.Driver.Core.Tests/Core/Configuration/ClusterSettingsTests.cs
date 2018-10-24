@@ -44,7 +44,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ClusterSettings(endPoints: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("endPoints");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("endPoints");
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ClusterSettings(serverSelectionTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("serverSelectionTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("serverSelectionTimeout");
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ClusterSettings(maxServerSelectionWaitQueueSize: -1);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("maxServerSelectionWaitQueueSize");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("maxServerSelectionWaitQueueSize");
         }
 
         [Fact]

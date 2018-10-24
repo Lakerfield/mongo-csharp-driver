@@ -37,7 +37,7 @@ namespace MongoDB.Driver
         public void Constructor_should_throw_if_tags_is_null()
         {
             Action action = () => new TagSet(null);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

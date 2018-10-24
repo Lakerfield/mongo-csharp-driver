@@ -56,7 +56,7 @@ namespace MongoDB.Bson.Tests
         {
             Action action = () => PowerOf2.IsPowerOf2(n);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("n");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("n");
         }
 
         [Theory]
@@ -90,7 +90,7 @@ namespace MongoDB.Bson.Tests
         {
             Action action = () => PowerOf2.RoundUpToPowerOf2(n);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("n");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("n");
         }
     }
 }

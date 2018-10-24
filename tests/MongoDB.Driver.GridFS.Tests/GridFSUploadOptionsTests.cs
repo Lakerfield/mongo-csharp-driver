@@ -83,7 +83,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.BatchSize = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.ChunkSizeBytes = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -151,7 +151,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.ContentType = "";
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
 #pragma warning restore
         }
 

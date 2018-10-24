@@ -53,7 +53,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPoolFactory(null, _connectionFactory, _eventSubscriber);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPoolFactory(_settings, null, _eventSubscriber);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPoolFactory(_settings, _connectionFactory, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
             var subject = new ExclusiveConnectionPoolFactory(_settings, _connectionFactory, _eventSubscriber);
 
             Action act = () => subject.CreateConnectionPool(null, _endPoint);
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -87,7 +87,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
             var subject = new ExclusiveConnectionPoolFactory(_settings, _connectionFactory, _eventSubscriber);
 
             Action act = () => subject.CreateConnectionPool(_serverId, null);
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

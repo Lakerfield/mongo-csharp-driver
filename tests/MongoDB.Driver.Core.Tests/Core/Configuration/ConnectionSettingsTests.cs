@@ -52,7 +52,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionSettings(authenticators: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("authenticators");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("authenticators");
         }
 
         [Theory]
@@ -63,7 +63,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionSettings(maxIdleTime: TimeSpan.FromSeconds(maxIdleTime));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("maxIdleTime");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("maxIdleTime");
         }
 
         [Theory]
@@ -74,7 +74,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionSettings(maxLifeTime: TimeSpan.FromSeconds(maxLifeTime));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("maxLifeTime");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("maxLifeTime");
         }
 
         [Fact]

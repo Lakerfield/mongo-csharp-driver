@@ -34,7 +34,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new AsyncCursorEnumerator<BsonDocument>(null, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("cursor");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("cursor");
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { var ignore = subject.Current; };
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { var ignore = subject.Current; };
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => { var ignore = subject.Current; };
 
-            action.ShouldThrow<ObjectDisposedException>();
+            action.Should().Throw<ObjectDisposedException>();
         }
 
         [Fact]
@@ -157,7 +157,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.MoveNext();
 
-            action.ShouldThrow<ObjectDisposedException>();
+            action.Should().Throw<ObjectDisposedException>();
         }
 
         [Fact]
@@ -167,7 +167,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.Reset();
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         // private methods

@@ -51,7 +51,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ServerSettings(heartbeatInterval: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("heartbeatInterval");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("heartbeatInterval");
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ServerSettings(heartbeatTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("heartbeatTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("heartbeatTimeout");
         }
 
         [Fact]

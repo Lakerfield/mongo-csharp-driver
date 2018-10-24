@@ -48,7 +48,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new BulkMixedWriteOperation(null, Enumerable.Empty<WriteRequest>(), _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new BulkMixedWriteOperation(_collectionNamespace, null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new BulkMixedWriteOperation(_collectionNamespace, Enumerable.Empty<WriteRequest>(), null);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -160,7 +160,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action act = () => ExecuteOperation(subject, async);
 
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -943,7 +943,7 @@ namespace MongoDB.Driver.Core.Operations
             };
 
             Action action = () => ExecuteOperation(subject, async);
-            var ex = action.ShouldThrow<MongoBulkWriteOperationException>().Subject.Single();
+            var ex = action.Should().Throw<MongoBulkWriteOperationException>().Subject.Single();
 
             var result = ex.Result;
             result.DeletedCount.Should().Be(0);
@@ -990,7 +990,7 @@ namespace MongoDB.Driver.Core.Operations
             };
 
             Action action = () => ExecuteOperation(subject, async);
-            var ex = action.ShouldThrow<MongoBulkWriteOperationException>().Subject.Single();
+            var ex = action.Should().Throw<MongoBulkWriteOperationException>().Subject.Single();
 
             var result = ex.Result;
             result.DeletedCount.Should().Be(0);
@@ -1032,7 +1032,7 @@ namespace MongoDB.Driver.Core.Operations
             };
 
             Action action = () => ExecuteOperation(subject, async);
-            var ex = action.ShouldThrow<MongoBulkWriteOperationException>().Subject.Single();
+            var ex = action.Should().Throw<MongoBulkWriteOperationException>().Subject.Single();
 
             var result = ex.Result;
             result.DeletedCount.Should().Be(0);
@@ -1074,7 +1074,7 @@ namespace MongoDB.Driver.Core.Operations
             };
 
             Action action = () => ExecuteOperation(subject, async);
-            var ex = action.ShouldThrow<MongoBulkWriteOperationException>().Subject.Single();
+            var ex = action.Should().Throw<MongoBulkWriteOperationException>().Subject.Single();
 
             var result = ex.Result;
             result.DeletedCount.Should().Be(0);

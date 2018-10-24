@@ -94,7 +94,7 @@ namespace MongoDB.Driver
                 action = () => source.First();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -158,7 +158,7 @@ namespace MongoDB.Driver
                 action = () => source.Single();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -200,7 +200,7 @@ namespace MongoDB.Driver
                 action = () => source.SingleOrDefault();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]

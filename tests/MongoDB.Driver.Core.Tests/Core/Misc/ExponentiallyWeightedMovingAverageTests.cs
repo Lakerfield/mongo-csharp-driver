@@ -31,7 +31,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => new ExponentiallyWeightedMovingAverage(alpha);
 
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Theory]
@@ -43,7 +43,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => new ExponentiallyWeightedMovingAverage(alpha);
 
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Theory]

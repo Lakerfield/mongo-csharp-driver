@@ -33,7 +33,7 @@ namespace MongoDB.Driver.Core.Connections
         {
             Action act = () => new IsMasterResult(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

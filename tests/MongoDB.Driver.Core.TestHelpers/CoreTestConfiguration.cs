@@ -318,7 +318,7 @@ namespace MongoDB.Driver
 #if NET45
             var stackTrace = new StackTrace();
 #else
-            var stackTrace = new StackTrace(new Exception(), needFileInfo: false);
+            var stackTrace = new StackTrace(new Exception(), fNeedFileInfo: false);
 #endif
             var stackFrames = stackTrace.GetFrames();
             for (var index = 0; index < stackFrames.Length; index++)

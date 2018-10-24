@@ -139,7 +139,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToByte(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -172,7 +172,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToInt16(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -205,7 +205,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToInt32(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -236,7 +236,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToInt64(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -267,7 +267,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToSByte(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -296,7 +296,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToUInt16(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -324,7 +324,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToUInt32(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Theory]
@@ -352,7 +352,7 @@ namespace MongoDB.Bson.Tests
             var subject = new Decimal128(value);
 
             Action act = () => Decimal128.ToUInt64(subject);
-            act.ShouldThrow<OverflowException>();
+            act.Should().Throw<OverflowException>();
         }
 
         [Fact]

@@ -92,7 +92,7 @@ namespace MongoDB.Driver
                 action = () => cursor.First();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -156,7 +156,7 @@ namespace MongoDB.Driver
                 action = () => cursor.Single();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -198,7 +198,7 @@ namespace MongoDB.Driver
                 action = () => cursor.SingleOrDefault();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -210,7 +210,7 @@ namespace MongoDB.Driver
 
             Action action = () => enumerable.GetEnumerator();
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -246,7 +246,7 @@ namespace MongoDB.Driver
                 action = () => cursor.ToList();
             }
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]

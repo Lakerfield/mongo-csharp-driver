@@ -45,7 +45,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new TcpStreamSettings(connectTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("connectTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("connectTimeout");
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new TcpStreamSettings(readTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("readTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("readTimeout");
         }
 
         [Theory]
@@ -64,7 +64,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new TcpStreamSettings(receiveBufferSize: receiveBufferSize);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("receiveBufferSize");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("receiveBufferSize");
         }
 
         [Theory]
@@ -75,7 +75,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new TcpStreamSettings(sendBufferSize: sendBufferSize);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("sendBufferSize");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("sendBufferSize");
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new TcpStreamSettings(writeTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("writeTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("writeTimeout");
         }
 
         [Fact]

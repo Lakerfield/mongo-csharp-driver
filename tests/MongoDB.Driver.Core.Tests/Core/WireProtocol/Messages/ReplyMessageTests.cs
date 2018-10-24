@@ -75,21 +75,21 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages
         public void Constructor_with_both_documents_nor_queryFailureDocument_should_throw()
         {
             Action action = () => new ReplyMessage<BsonDocument>(true, _cursorId, false, _documents, _numberReturned, false, _queryFailureDocument, _requestId, _responseTo, null, _startingFrom);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Fact]
         public void Constructor_with_neither_documents_nor_queryFailureDocument_should_throw()
         {
             Action action = () => new ReplyMessage<BsonDocument>(true, _cursorId, false, null, _numberReturned, false, null, _requestId, _responseTo, null, _startingFrom);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Fact]
         public void Constructor_with_null_serializer_should_throw()
         {
             Action action = () => new ReplyMessage<BsonDocument>(true, _cursorId, false, _documents, _numberReturned, false, null, _requestId, _responseTo, null, _startingFrom);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

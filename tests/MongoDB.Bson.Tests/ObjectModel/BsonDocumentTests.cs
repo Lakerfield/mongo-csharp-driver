@@ -807,7 +807,7 @@ namespace MongoDB.Bson.Tests
         {
             var json = "{ a : 1, b : 'abc' } x";
             Action action = () => BsonDocument.Parse(json);
-            action.ShouldThrow<FormatException>();
+            action.Should().Throw<FormatException>();
         }
 
         [Fact]

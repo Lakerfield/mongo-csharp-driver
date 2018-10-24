@@ -79,7 +79,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => CStringUtf8Encoding.GetBytes(value, bytes, 0, Utf8Encodings.Strict);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -90,7 +90,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => CStringUtf8Encoding.GetBytes(value, bytes, 0, Utf8Encodings.Strict);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -101,7 +101,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => CStringUtf8Encoding.GetBytes(value, bytes, 0, Utf8Encodings.Strict);
 
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
     }
 }

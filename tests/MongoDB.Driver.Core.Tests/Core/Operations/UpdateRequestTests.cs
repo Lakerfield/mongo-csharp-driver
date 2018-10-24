@@ -27,7 +27,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new UpdateRequest(UpdateType.Update, null, new BsonDocument());
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new UpdateRequest(UpdateType.Update, new BsonDocument(), null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new UpdateRequest(UpdateType.Update, new BsonDocument(), new BsonDocument());
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new UpdateRequest(UpdateType.Replacement, new BsonDocument(), new BsonDocument());
 
-            act.ShouldNotThrow<ArgumentException>();
+            act.Should().NotThrow<ArgumentException>();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace MongoDB.Driver
         {
             Action act = () => CollectionNamespace.FromFullName(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace MongoDB.Driver
         {
             Action act = () => new CollectionNamespace((string)null, "bar\0baz");
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace MongoDB.Driver
         {
             Action act = () => new CollectionNamespace((DatabaseNamespace)null, "bar\0baz");
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace MongoDB.Driver
         {
             Action act = () => new CollectionNamespace("foo", "bar\0baz");
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]

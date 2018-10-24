@@ -89,7 +89,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.First();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
         }
 
         [Theory]
@@ -147,7 +147,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.FirstOrDefault();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
         }
 
         [Fact]
@@ -307,7 +307,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.Single();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
         }
 
         [Theory]
@@ -363,7 +363,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.SingleOrDefault();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("aggregate");
         }
 
         [Fact]

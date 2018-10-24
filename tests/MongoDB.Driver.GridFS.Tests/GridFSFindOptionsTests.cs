@@ -56,7 +56,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.BatchSize = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.MaxTime = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
  
         [Fact]
@@ -175,7 +175,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.Skip = -1;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]

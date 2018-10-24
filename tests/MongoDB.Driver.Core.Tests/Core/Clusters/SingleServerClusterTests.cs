@@ -47,7 +47,7 @@ namespace MongoDB.Driver.Core.Clusters
             _settings = _settings.With(endPoints: new[] { _endPoint, new DnsEndPoint("localhost", 27018) });
             Action act = () => new SingleServerCluster(_settings, _mockServerFactory, _capturedEvents);
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace MongoDB.Driver.Core.Clusters
 
             Action act = () => subject.Initialize();
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Fact]

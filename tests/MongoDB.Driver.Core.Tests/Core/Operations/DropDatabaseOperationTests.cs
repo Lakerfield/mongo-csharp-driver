@@ -45,7 +45,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => { new DropDatabaseOperation(null, _messageEncoderSettings); };
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
         }
 
         [Fact]
@@ -117,7 +117,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, null, async);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("binding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("binding");
         }
 
         [SkippableTheory]

@@ -45,7 +45,7 @@ namespace MongoDB.Driver.Core.Authentication
         {
             Action act = () => new MongoDBX509Authenticator(username);
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Theory]
@@ -71,7 +71,7 @@ namespace MongoDB.Driver.Core.Authentication
                 act = () => subject.Authenticate(connection, __description, CancellationToken.None);
             }
 
-            act.ShouldThrow<MongoAuthenticationException>();
+            act.Should().Throw<MongoAuthenticationException>();
         }
 
         [Theory]
@@ -99,7 +99,7 @@ namespace MongoDB.Driver.Core.Authentication
                 act = () => subject.Authenticate(connection, __description, CancellationToken.None);
             }
 
-            act.ShouldNotThrow();
+            act.Should().NotThrow();
         }
 
         [Theory]

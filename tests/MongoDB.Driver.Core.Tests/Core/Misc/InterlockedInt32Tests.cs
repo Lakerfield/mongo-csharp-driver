@@ -61,7 +61,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             var subject = new InterlockedInt32(0);
             Action action = () => subject.TryChange(1, 1);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
     }
 }

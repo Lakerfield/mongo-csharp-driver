@@ -71,7 +71,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.BatchSize = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -143,7 +143,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new FindOpcodeOperation<BsonDocument>(null, BsonDocumentSerializer.Instance, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [Fact]
@@ -151,7 +151,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new FindOpcodeOperation<BsonDocument>(_collectionNamespace, BsonDocumentSerializer.Instance, null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
         }
 
         [Fact]
@@ -159,7 +159,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new FindOpcodeOperation<BsonDocument>(_collectionNamespace, null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("resultSerializer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("resultSerializer");
         }
 
         [Theory]
@@ -350,7 +350,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Func<Task> action = () => subject.ExecuteAsync(null, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("binding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("binding");
         }
 
         [Theory]
@@ -392,7 +392,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.FirstBatchSize = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -619,7 +619,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.Skip = value;
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]

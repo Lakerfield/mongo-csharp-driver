@@ -43,7 +43,7 @@ namespace MongoDB.Driver
         {
             Action act = () => new DatabaseNamespace("foo.bar");
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]

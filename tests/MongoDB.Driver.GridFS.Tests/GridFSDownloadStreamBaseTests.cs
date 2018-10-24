@@ -238,7 +238,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Flush();
             }
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         [Fact]
@@ -260,7 +260,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.SetLength(0);
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         [Theory]
@@ -283,7 +283,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Write(buffer, offset, count);
             }
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         // private methods

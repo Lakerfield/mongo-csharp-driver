@@ -145,7 +145,7 @@ namespace MongoDB.Driver.Core.Operations
             var connectionDescription = OperationTestHelper.CreateConnectionDescription(serverVersion: Feature.ReadConcern.LastNotSupportedVersion);
 
             Action act = () => subject.CreateCommand(session, connectionDescription);
-            act.ShouldThrow<MongoClientException>();
+            act.Should().Throw<MongoClientException>();
         }
 
         [Theory]
@@ -183,7 +183,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action act = () => ExecuteOperation(subject, binding, async);
 
-            act.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("binding");
+            act.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("binding");
         }
 
         // helper methods

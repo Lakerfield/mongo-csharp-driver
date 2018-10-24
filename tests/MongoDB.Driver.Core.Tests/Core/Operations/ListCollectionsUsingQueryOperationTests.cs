@@ -49,7 +49,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new ListCollectionsUsingQueryOperation(null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("databaseNamespace");
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new ListCollectionsUsingQueryOperation(_databaseNamespace, null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("messageEncoderSettings");
         }
 
         [Fact]
@@ -143,7 +143,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, async);
 
-            action.ShouldThrow<NotSupportedException>();
+            action.Should().Throw<NotSupportedException>();
         }
 
         // helper methods

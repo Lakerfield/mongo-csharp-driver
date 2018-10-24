@@ -46,7 +46,7 @@ namespace MongoDB.Driver.Core.Misc
             var enumerator = (ReadAheadEnumerable<int>.ReadAheadEnumerator)subject.GetEnumerator();
 
             Action act = () => { int temp = enumerator.Current; };
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
 
             enumerator.MoveNext().Should().BeTrue();
             enumerator.Current.Should().Be(1);
@@ -63,7 +63,7 @@ namespace MongoDB.Driver.Core.Misc
             enumerator.MoveNext().Should().BeFalse();
 
             act = () => { int temp = enumerator.Current; };
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
     }
 }

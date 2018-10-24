@@ -57,7 +57,7 @@ namespace MongoDB.Driver.Core.Clusters
             var settings = new ClusterSettings(endPoints: new EndPoint[0]);
             Action act = () => new MultiServerCluster(settings, _serverFactory, _capturedEvents);
 
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Theory]
@@ -70,7 +70,7 @@ namespace MongoDB.Driver.Core.Clusters
                 connectionMode: mode);
             Action act = () => new MultiServerCluster(settings, _serverFactory, _capturedEvents);
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace MongoDB.Driver.Core.Clusters
 
             Action act = () => subject.Initialize();
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Fact]

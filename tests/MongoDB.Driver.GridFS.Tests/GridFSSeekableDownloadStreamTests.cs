@@ -77,7 +77,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.Position = -1;
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -128,7 +128,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.Read(null, 0, 0);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Theory]
@@ -161,7 +161,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Read(buffer, offset, count);
             }
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -186,7 +186,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Read(buffer, offset, 0);
             }
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Theory]
@@ -242,7 +242,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => subject.Seek(offset, origin);
 
-            action.ShouldThrow<IOException>();
+            action.Should().Throw<IOException>();
         }
 
         // private methods

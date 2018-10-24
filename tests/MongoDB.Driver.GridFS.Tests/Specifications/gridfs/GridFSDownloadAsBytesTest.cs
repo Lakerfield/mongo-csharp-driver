@@ -148,7 +148,7 @@ namespace MongoDB.Driver.GridFS.Tests.Specifications.gridfs
 
         protected override void Assert(GridFSBucket bucket)
         {
-            _action.ShouldThrow<TException>();
+            _action.Should().Throw<TException>();
             // don't call base.Assert
         }
     }

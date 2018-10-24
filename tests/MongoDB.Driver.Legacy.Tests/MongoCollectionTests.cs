@@ -1094,7 +1094,7 @@ namespace MongoDB.Driver.Tests
             {
                 Action action = () => collection.FindAndModify(args);
 
-                var exception = action.ShouldThrow<MongoWriteConcernException>().Which;
+                var exception = action.Should().Throw<MongoWriteConcernException>().Which;
                 var commandResult = exception.Result;
                 modifiedDocument = commandResult["value"].AsBsonDocument;
             }
@@ -1131,7 +1131,7 @@ namespace MongoDB.Driver.Tests
             {
                 Action action = () => collection.FindAndModify(args);
 
-                var exception = action.ShouldThrow<MongoWriteConcernException>().Which;
+                var exception = action.Should().Throw<MongoWriteConcernException>().Which;
                 var commandResult = exception.Result;
                 modifiedDocument = commandResult["value"].AsBsonDocument;
             }
@@ -1262,7 +1262,7 @@ namespace MongoDB.Driver.Tests
             {
                 Action action = () => collection.FindAndRemove(args);
 
-                var exception = action.ShouldThrow<MongoWriteConcernException>().Which;
+                var exception = action.Should().Throw<MongoWriteConcernException>().Which;
                 var commandResult = exception.Result;
                 modifiedDocument = commandResult["value"].AsBsonDocument;
             }
@@ -2546,7 +2546,7 @@ namespace MongoDB.Driver.Tests
 
             Action action = () => collection.Insert(document);
 
-            action.ShouldThrow<MongoWriteConcernException>();
+            action.Should().Throw<MongoWriteConcernException>();
             _collection.FindOne().Should().Be(document);
         }
 
@@ -3066,7 +3066,7 @@ namespace MongoDB.Driver.Tests
 
             Action action = () => collection.Remove(query);
 
-            action.ShouldThrow<MongoWriteConcernException>();
+            action.Should().Throw<MongoWriteConcernException>();
             _collection.Count().Should().Be(0);
         }
 
@@ -3345,7 +3345,7 @@ namespace MongoDB.Driver.Tests
 
             Action action = () => collection.Update(query, update);
 
-            action.ShouldThrow<MongoWriteConcernException>();
+            action.Should().Throw<MongoWriteConcernException>();
             _collection.FindOne().Should().Be("{ _id : 1, x : 2 }");
         }
 

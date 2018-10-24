@@ -37,7 +37,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textReader = new StringReader(""))
             {
                 Action action = () => new JsonMessageEncoderFactory(textReader, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -46,7 +46,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
         {
             TextReader textReader = null;
             Action action = () => new JsonMessageEncoderFactory(textReader, __messageEncoderSettings);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new JsonMessageEncoderFactory(textWriter, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -64,7 +64,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
         {
             TextWriter textWriter = null;
             Action action = () => new JsonMessageEncoderFactory(textWriter, __messageEncoderSettings);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textReader = new StringReader(""))
             {
                 Action action = () => new JsonMessageEncoderFactory(textReader, null, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -83,7 +83,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new JsonMessageEncoderFactory(null, textWriter, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -91,7 +91,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
         public void Constructor_with_two_parameters_should_throw_if_both_values_are_null()
         {
             Action action = () => new JsonMessageEncoderFactory(null, null, __messageEncoderSettings);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Fact]

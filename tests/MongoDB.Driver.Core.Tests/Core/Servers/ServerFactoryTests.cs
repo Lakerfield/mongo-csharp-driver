@@ -53,7 +53,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerFactory(_clusterConnectionMode, null, _connectionPoolFactory, _serverMonitorFactory, _eventSubscriber);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerFactory(_clusterConnectionMode, _settings, null, _serverMonitorFactory, _eventSubscriber);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerFactory(_clusterConnectionMode, _settings, _connectionPoolFactory, null, _eventSubscriber);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new ServerFactory(_clusterConnectionMode, _settings, _connectionPoolFactory, _serverMonitorFactory, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -88,7 +88,7 @@ namespace MongoDB.Driver.Core.Servers
 
             Action act = () => subject.CreateServer(null, clusterClock, _endPoint);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -99,7 +99,7 @@ namespace MongoDB.Driver.Core.Servers
 
             Action act = () => subject.CreateServer(clusterId, null, _endPoint);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -110,7 +110,7 @@ namespace MongoDB.Driver.Core.Servers
 
             Action act = () => subject.CreateServer(_clusterId, clusterClock, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

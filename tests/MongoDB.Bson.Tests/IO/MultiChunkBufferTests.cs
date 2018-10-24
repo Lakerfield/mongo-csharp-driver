@@ -71,7 +71,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.AccessBackingBytes(position);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.AccessBackingBytes(0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -103,7 +103,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Capacity; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -174,7 +174,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Clear(position, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -187,7 +187,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Clear(position, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -197,7 +197,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Clear(0, 0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Fact]
@@ -207,7 +207,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Clear(0, 0);
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -287,7 +287,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => new MultiChunkBuffer(chunks);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("chunks");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("chunks");
         }
 
         [Theory]
@@ -301,7 +301,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => new MultiChunkBuffer(chunks, length);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("length");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("length");
         }
 
         [Fact]
@@ -328,7 +328,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => new MultiChunkBuffer(chunkSource);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("chunkSource");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("chunkSource");
         }
 
         [Fact]
@@ -399,7 +399,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.EnsureCapacity(1);
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -409,7 +409,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.EnsureCapacity(-1);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("minimumCapacity");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("minimumCapacity");
         }
 
         [Fact]
@@ -419,7 +419,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.EnsureCapacity(1);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Fact]
@@ -429,7 +429,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.EnsureCapacity(1);
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [SkippableFact]
@@ -443,7 +443,7 @@ namespace MongoDB.Bson.Tests.IO
 
                 Action action = () => subject.EnsureCapacity(int.MaxValue); // indirectly calls private ExpandCapacity method
 
-                action.ShouldThrow<InvalidOperationException>();
+                action.Should().Throw<InvalidOperationException>();
             }
         }
 
@@ -474,7 +474,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetByte(position);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -484,7 +484,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetByte(0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -553,7 +553,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetBytes(position, destination, 0, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -568,7 +568,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetBytes(0, destination, offset, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Fact]
@@ -578,7 +578,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetBytes(0, null, 0, 0);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("destination");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("destination");
         }
 
         [Theory]
@@ -592,7 +592,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetBytes(0, destination, offset, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Theory]
@@ -606,7 +606,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetBytes(position, destination, 0, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -617,7 +617,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetBytes(0, destination, 0, 0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -694,7 +694,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetSlice(position, length);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("length");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("length");
         }
 
         [Theory]
@@ -707,7 +707,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetSlice(position, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -717,7 +717,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetSlice(0, 0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Fact]
@@ -727,7 +727,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetSlice(0, 0);
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -750,7 +750,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.IsReadOnly; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -773,7 +773,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Length; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -796,7 +796,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Length = 0;
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -810,7 +810,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Length = value;
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -820,7 +820,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Length = 0;
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -843,7 +843,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.MakeReadOnly();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Theory]
@@ -873,7 +873,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetByte(position, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -883,7 +883,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetByte(0, 0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Fact]
@@ -893,7 +893,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetByte(0, 0);
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -940,7 +940,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(position, source, 0, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -954,7 +954,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(0, source, offset, count);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -968,7 +968,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(0, source, offset, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Theory]
@@ -982,7 +982,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(position, source, 0, 0);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("position");
         }
 
         [Fact]
@@ -992,7 +992,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(0, null, 0, 0);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("source");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("source");
         }
 
         [Fact]
@@ -1003,7 +1003,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(0, source, 0, 0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("MultiChunkBuffer");
         }
 
         [Fact]
@@ -1014,7 +1014,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.SetBytes(0, source, 0, 0);
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
 
         // helper methods

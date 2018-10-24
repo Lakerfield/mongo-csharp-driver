@@ -32,7 +32,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
             using (var stream = new MemoryStream())
             {
                 Action action = () => new BinaryMessageEncoderFactory(stream, null);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -40,7 +40,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
         public void Constructor_should_throw_if_stream_is_null()
         {
             Action action = () => new BinaryMessageEncoderFactory(null, null);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

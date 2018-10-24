@@ -84,7 +84,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(_clusterId, _clusterClock, _clusterConnectionMode, null, _endPoint, _mockConnectionPoolFactory.Object, _mockServerMonitorFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(null, _clusterClock, _clusterConnectionMode, _settings, _endPoint, _mockConnectionPoolFactory.Object, _mockServerMonitorFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -100,7 +100,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(_clusterId, null, _clusterConnectionMode, _settings, _endPoint, _mockConnectionPoolFactory.Object, _mockServerMonitorFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -108,7 +108,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(_clusterId, _clusterClock, _clusterConnectionMode, _settings, null, _mockConnectionPoolFactory.Object, _mockServerMonitorFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(_clusterId, _clusterClock, _clusterConnectionMode, _settings, _endPoint, null, _mockServerMonitorFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -124,7 +124,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(_clusterId, _clusterClock, _clusterConnectionMode, _settings, _endPoint, _mockConnectionPoolFactory.Object, null, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -132,7 +132,7 @@ namespace MongoDB.Driver.Core.Servers
         {
             Action act = () => new Server(_clusterId, _clusterClock, _clusterConnectionMode, _settings, _endPoint, _mockConnectionPoolFactory.Object, _mockServerMonitorFactory.Object, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -221,7 +221,7 @@ namespace MongoDB.Driver.Core.Servers
                 act = () => _subject.GetChannel(CancellationToken.None);
             }
 
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -242,7 +242,7 @@ namespace MongoDB.Driver.Core.Servers
                 act = () => _subject.GetChannel(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]

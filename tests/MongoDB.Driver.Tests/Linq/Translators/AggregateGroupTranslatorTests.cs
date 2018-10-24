@@ -180,7 +180,7 @@ namespace MongoDB.Driver.Tests.Linq.Translators
         {
             Action act = () => Group(x => x.A, g => new { g.Last(x => x.A == "bin").B });
 
-            act.ShouldThrow<NotSupportedException>();
+            act.Should().Throw<NotSupportedException>();
         }
 
         [Fact]

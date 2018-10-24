@@ -41,7 +41,7 @@ namespace MongoDB.Driver.GridFS.Tests
         {
             Action action = () => new GridFSChunkException(null, 2, "missing");
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace MongoDB.Driver.GridFS.Tests
         {
             Action action = () => new GridFSChunkException(123, -2, "missing");
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("n");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("n");
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace MongoDB.Driver.GridFS.Tests
         {
             Action action = () => new GridFSChunkException(123, 2, null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("reason");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("reason");
         }
     }
 }

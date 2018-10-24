@@ -69,7 +69,7 @@ namespace MongoDB.Driver.Core.Clusters
         {
             Action act = () => new StubCluster(null, _mockServerFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace MongoDB.Driver.Core.Clusters
         {
             Action act = () => new StubCluster(_settings, null, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace MongoDB.Driver.Core.Clusters
         {
             Action act = () => new StubCluster(_settings, _mockServerFactory.Object, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]
@@ -139,7 +139,7 @@ namespace MongoDB.Driver.Core.Clusters
                 act = () => subject.SelectServer(selector, CancellationToken.None);
             }
 
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -162,7 +162,7 @@ namespace MongoDB.Driver.Core.Clusters
                 act = () => subject.SelectServer(selector, CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]
@@ -184,7 +184,7 @@ namespace MongoDB.Driver.Core.Clusters
                 act = () => subject.SelectServer(null, CancellationToken.None);
             }
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]
@@ -281,7 +281,7 @@ namespace MongoDB.Driver.Core.Clusters
                 act = () => subject.SelectServer(selector, CancellationToken.None);
             }
 
-            act.ShouldThrow<TimeoutException>();
+            act.Should().Throw<TimeoutException>();
 
             _capturedEvents.Next().Should().BeOfType<ClusterSelectingServerEvent>();
             _capturedEvents.Next().Should().BeOfType<ClusterSelectingServerFailedEvent>();
@@ -314,7 +314,7 @@ namespace MongoDB.Driver.Core.Clusters
                 act = () => subject.SelectServer(selector, CancellationToken.None);
             }
 
-            act.ShouldThrow<TimeoutException>();
+            act.Should().Throw<TimeoutException>();
 
             _capturedEvents.Next().Should().BeOfType<ClusterSelectingServerEvent>();
             _capturedEvents.Next().Should().BeOfType<ClusterSelectingServerFailedEvent>();
@@ -347,7 +347,7 @@ namespace MongoDB.Driver.Core.Clusters
                 act = () => subject.SelectServer(selector, CancellationToken.None);
             }
 
-            act.ShouldThrow<MongoIncompatibleDriverException>();
+            act.Should().Throw<MongoIncompatibleDriverException>();
 
             _capturedEvents.Next().Should().BeOfType<ClusterSelectingServerEvent>();
             _capturedEvents.Next().Should().BeOfType<ClusterSelectingServerFailedEvent>();

@@ -46,7 +46,7 @@ namespace MongoDB.Driver.GridFS.Tests
                     action = () => subject.CopyTo(destination);
                 }
 
-                action.ShouldThrow<NotSupportedException>();
+                action.Should().Throw<NotSupportedException>();
             }
         }
 
@@ -68,7 +68,7 @@ namespace MongoDB.Driver.GridFS.Tests
                 action = () => subject.Flush();
             }
 
-            action.ShouldNotThrow();
+            action.Should().NotThrow();
         }
 
         // private methods

@@ -97,7 +97,7 @@ namespace MongoDB.Bson.Tests.IO
 
                 Action action = () => binaryWriter.WriteEndArray(); // indirectly calls private BackpatchSize method
 
-                action.ShouldThrow<FormatException>();
+                action.Should().Throw<FormatException>();
             }
         }
     }

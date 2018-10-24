@@ -94,7 +94,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => mockStream.Object.ReadBytesAsync(destination, 0, 1, CancellationToken.None);
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -105,7 +105,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, 0, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Theory]
@@ -119,7 +119,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, offset, count, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -133,7 +133,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, offset, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Fact]
@@ -144,7 +144,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, 0, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("stream");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("stream");
         }
 
         [Theory]
@@ -211,7 +211,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => mockStream.Object.ReadBytesAsync(destination, 0, 1, CancellationToken.None);
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -222,7 +222,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, 0, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Theory]
@@ -236,7 +236,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, offset, count, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -250,7 +250,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, offset, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Fact]
@@ -261,7 +261,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.ReadBytesAsync(destination, 0, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("stream");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("stream");
         }
 
         [Theory]
@@ -322,7 +322,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.WriteBytesAsync(null, 0, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("buffer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("buffer");
         }
 
         [Theory]
@@ -336,7 +336,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.WriteBytesAsync(source, offset, count, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("count");
         }
 
         [Theory]
@@ -350,7 +350,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.WriteBytesAsync(destination, offset, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("offset");
         }
 
         [Fact]
@@ -361,7 +361,7 @@ namespace MongoDB.Driver.Core.Misc
 
             Func<Task> action = () => stream.WriteBytesAsync(source, 0, 0, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("stream");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("stream");
         }
 
         // helper methods

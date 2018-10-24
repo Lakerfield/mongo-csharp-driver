@@ -25,17 +25,17 @@ namespace MongoDB.Driver.Core.Operations
     {
         [Theory]
         [InlineData(1, true)]
-        [InlineData(ServerErrorCode.HostNotFound, true)]
-        [InlineData(ServerErrorCode.HostUnreachable, true)]
-        [InlineData(ServerErrorCode.NetworkTimeout, true)]
-        [InlineData(ServerErrorCode.SocketException, true)]
-        [InlineData(ServerErrorCode.ElectionInProgress, true)]
-        [InlineData(ServerErrorCode.ExceededTimeLimit, true)]
-        [InlineData(ServerErrorCode.RetryChangeStream, true)]
-        [InlineData(ServerErrorCode.WriteConcernFailed, true)]
-        [InlineData(ServerErrorCode.CappedPositionLost, false)]
-        [InlineData(ServerErrorCode.CursorKilled, false)]
-        [InlineData(ServerErrorCode.Interrupted, false)]
+        [InlineData((int)ServerErrorCode.HostNotFound, true)]
+        [InlineData((int)ServerErrorCode.HostUnreachable, true)]
+        [InlineData((int)ServerErrorCode.NetworkTimeout, true)]
+        [InlineData((int)ServerErrorCode.SocketException, true)]
+        [InlineData((int)ServerErrorCode.ElectionInProgress, true)]
+        [InlineData((int)ServerErrorCode.ExceededTimeLimit, true)]
+        [InlineData((int)ServerErrorCode.RetryChangeStream, true)]
+        [InlineData((int)ServerErrorCode.WriteConcernFailed, true)]
+        [InlineData((int)ServerErrorCode.CappedPositionLost, false)]
+        [InlineData((int)ServerErrorCode.CursorKilled, false)]
+        [InlineData((int)ServerErrorCode.Interrupted, false)]
         public void IsResumableChangeStreamException_should_return_expected_result_using_code(int code, bool expectedResult)
         {
             var exception = CoreExceptionHelper.CreateMongoCommandException(code);
@@ -62,11 +62,11 @@ namespace MongoDB.Driver.Core.Operations
 
         [Theory]
         [InlineData(1, false)]
-        [InlineData(ServerErrorCode.HostNotFound, true)]
-        [InlineData(ServerErrorCode.HostUnreachable, true)]
-        [InlineData(ServerErrorCode.NetworkTimeout, true)]
-        [InlineData(ServerErrorCode.SocketException, true)]
-        [InlineData(ServerErrorCode.WriteConcernFailed, true)]
+        [InlineData((int)ServerErrorCode.HostNotFound, true)]
+        [InlineData((int)ServerErrorCode.HostUnreachable, true)]
+        [InlineData((int)ServerErrorCode.NetworkTimeout, true)]
+        [InlineData((int)ServerErrorCode.SocketException, true)]
+        [InlineData((int)ServerErrorCode.WriteConcernFailed, true)]
         public void IsRetryableException_should_return_expected_result_using_code(int code, bool expectedResult)
         {
             var exception = CoreExceptionHelper.CreateMongoCommandException(code);

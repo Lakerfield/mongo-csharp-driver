@@ -1,14 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <VersionPrefix>2.7.0</VersionPrefix>
     <VersionSuffix>beta1</VersionSuffix>
-    <TargetFramework>netstandard1.5</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>MongoDB.Driver</AssemblyName>
     <PackageId>MongoDB.Driver.Dotnet</PackageId>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -21,11 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MongoDB.Bson.Dotnet\MongoDB.Bson.Dotnet.csproj" />
     <ProjectReference Include="..\MongoDB.Driver.Core.Dotnet\MongoDB.Driver.Core.Dotnet.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.5' ">
-    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.1.0" />
-    <PackageReference Include="System.Linq.Queryable" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

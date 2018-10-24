@@ -73,7 +73,7 @@ namespace MongoDB.Driver.Specifications.initial_dns_seedlist_discovery
             var expectedSeeds = definition["seeds"].AsBsonArray.Select(x => x.ToString()).ToList();
             var actualSeeds = connectionString.Hosts.Select(ConvertEndPointToString).ToList();
 
-            actualSeeds.ShouldAllBeEquivalentTo(expectedSeeds);
+            actualSeeds.Should().BeEquivalentTo(expectedSeeds);
 
             if (definition.Contains("options"))
             {

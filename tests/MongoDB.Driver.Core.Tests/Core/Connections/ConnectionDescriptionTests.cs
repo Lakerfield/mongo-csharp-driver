@@ -42,7 +42,7 @@ namespace MongoDB.Driver.Core.Connections
         {
             Action act = () => new ConnectionDescription(null, __isMasterResult, __buildInfoResult);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace MongoDB.Driver.Core.Connections
         {
             Action act = () => new ConnectionDescription(__connectionId, null, __buildInfoResult);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace MongoDB.Driver.Core.Connections
         {
             Action act = () => new ConnectionDescription(__connectionId, __isMasterResult, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

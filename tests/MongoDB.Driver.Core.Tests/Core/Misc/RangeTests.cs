@@ -31,7 +31,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => new Range<int>(2, 1);
 
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            act.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Theory]

@@ -185,13 +185,13 @@ namespace MongoDB.Driver.Core.Misc
 
 
         [Theory]
-        [InlineData(ServerErrorCode.NotMaster, typeof(MongoNotPrimaryException))]
-        [InlineData(ServerErrorCode.NotMasterNoSlaveOk, typeof(MongoNotPrimaryException))]
-        [InlineData(ServerErrorCode.InterruptedAtShutdown, typeof(MongoNodeIsRecoveringException))]
-        [InlineData(ServerErrorCode.InterruptedDueToReplStateChange, typeof(MongoNodeIsRecoveringException))]
-        [InlineData(ServerErrorCode.NotMasterOrSecondary, typeof(MongoNodeIsRecoveringException))]
-        [InlineData(ServerErrorCode.PrimarySteppedDown, typeof(MongoNodeIsRecoveringException))]
-        [InlineData(ServerErrorCode.ShutdownInProgress, typeof(MongoNodeIsRecoveringException))]
+        [InlineData((int)ServerErrorCode.NotMaster, typeof(MongoNotPrimaryException))]
+        [InlineData((int)ServerErrorCode.NotMasterNoSlaveOk, typeof(MongoNotPrimaryException))]
+        [InlineData((int)ServerErrorCode.InterruptedAtShutdown, typeof(MongoNodeIsRecoveringException))]
+        [InlineData((int)ServerErrorCode.InterruptedDueToReplStateChange, typeof(MongoNodeIsRecoveringException))]
+        [InlineData((int)ServerErrorCode.NotMasterOrSecondary, typeof(MongoNodeIsRecoveringException))]
+        [InlineData((int)ServerErrorCode.PrimarySteppedDown, typeof(MongoNodeIsRecoveringException))]
+        [InlineData((int)ServerErrorCode.ShutdownInProgress, typeof(MongoNodeIsRecoveringException))]
         [InlineData(-1, null)]
         public void MapNotPrimaryOrNodeIsRecovering_should_return_expected_result_using_code(int code, Type expectedExceptionType)
         {

@@ -36,7 +36,7 @@ namespace MongoDB.Driver.Core.Bindings
         {
             Action act = () => new ReadBindingHandle(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MongoDB.Driver.Core.Bindings
                 act = () => subject.GetReadChannelSource(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]
@@ -101,7 +101,7 @@ namespace MongoDB.Driver.Core.Bindings
 
             Action act = () => subject.Fork();
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Fact]

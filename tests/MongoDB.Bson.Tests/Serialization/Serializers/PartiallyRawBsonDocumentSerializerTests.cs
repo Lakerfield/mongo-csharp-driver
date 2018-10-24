@@ -30,7 +30,7 @@ namespace MongoDB.Bson.Tests.Serialization.Serializers
         {
             Action action = () => new PartiallyRawBsonDocumentSerializer(null, BsonDocumentSerializer.Instance);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("name");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("name");
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace MongoDB.Bson.Tests.Serialization.Serializers
         {
             Action action = () => new PartiallyRawBsonDocumentSerializer("name", null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("rawSerializer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("rawSerializer");
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace MongoDB.Bson.Tests.Serialization.Serializers
         {
             Action action = () => new PartiallyRawBsonDocumentSerializer("name", new Int32Serializer());
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("rawSerializer");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("rawSerializer");
         }
 
         [Fact]

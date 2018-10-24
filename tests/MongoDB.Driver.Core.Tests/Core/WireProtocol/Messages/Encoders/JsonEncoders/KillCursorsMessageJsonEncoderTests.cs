@@ -54,7 +54,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new KillCursorsMessageJsonEncoder(textReader, textWriter, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -64,7 +64,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textReader = new StringReader(""))
             {
                 Action action = () => new KillCursorsMessageJsonEncoder(textReader, null, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -74,7 +74,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new KillCursorsMessageJsonEncoder(null, textWriter, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -82,7 +82,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
         public void Constructor_should_throw_if_textReader_and_textWriter_are_both_null()
         {
             Action action = () => new KillCursorsMessageJsonEncoder(null, null, __messageEncoderSettings);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -104,7 +104,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             {
                 var subject = new KillCursorsMessageJsonEncoder(null, textWriter, __messageEncoderSettings);
                 Action action = () => subject.ReadMessage();
-                action.ShouldThrow<InvalidOperationException>();
+                action.Should().Throw<InvalidOperationException>();
             }
         }
 
@@ -115,7 +115,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             {
                 var subject = new KillCursorsMessageJsonEncoder(textReader, null, __messageEncoderSettings);
                 Action action = () => subject.WriteMessage(__testMessage);
-                action.ShouldThrow<InvalidOperationException>();
+                action.Should().Throw<InvalidOperationException>();
             }
         }
 
@@ -126,7 +126,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             {
                 var subject = new KillCursorsMessageJsonEncoder(null, textWriter, __messageEncoderSettings);
                 Action action = () => subject.WriteMessage(null);
-                action.ShouldThrow<ArgumentNullException>();
+                action.Should().Throw<ArgumentNullException>();
             }
         }
 

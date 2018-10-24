@@ -64,7 +64,7 @@ namespace MongoDB.Driver.Tests
 
             Action act = () => Render(combined);
             
-            act.ShouldThrow<MongoException>();
+            act.Should().Throw<MongoException>();
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace MongoDB.Driver.Tests
 
             Action act = () => Render(result);
 
-            act.ShouldThrow<MongoException>();
+            act.Should().Throw<MongoException>();
         }
 
         [Fact]

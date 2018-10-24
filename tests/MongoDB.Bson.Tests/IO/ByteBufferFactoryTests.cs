@@ -72,7 +72,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => ByteBufferFactory.Create(null, 0);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("chunkSource");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("chunkSource");
         }
 
         [Theory]
@@ -85,7 +85,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => ByteBufferFactory.Create(mockChunkSource.Object, minimumCapacity);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("minimumCapacity");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("minimumCapacity");
         }
     }
 }

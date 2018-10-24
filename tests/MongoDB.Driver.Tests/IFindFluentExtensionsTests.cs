@@ -86,7 +86,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.First();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("find");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("find");
         }
 
         [Theory]
@@ -144,7 +144,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.FirstOrDefault();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("find");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("find");
         }
 
         [Fact]
@@ -235,7 +235,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.Single();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("find");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("find");
         }
 
         [Theory]
@@ -294,7 +294,7 @@ namespace MongoDB.Driver.Tests
                 action = () => subject.SingleOrDefault();
             }
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("find");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("find");
         }
 
         [Fact]

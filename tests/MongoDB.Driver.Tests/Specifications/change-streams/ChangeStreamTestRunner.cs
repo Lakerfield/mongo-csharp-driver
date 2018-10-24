@@ -44,11 +44,11 @@ namespace MongoDB.Driver.Tests.Specifications.change_streams
         [ClassData(typeof(TestCaseFactory))]
         public void Run(JsonDrivenTestCase testCase)
         {
-            Run(testCase.Shared, testCase.Test);
+            RunImpl(testCase.Shared, testCase.Test);
         }
 
         // private methods
-        private void Run(BsonDocument shared, BsonDocument test)
+        private void RunImpl(BsonDocument shared, BsonDocument test)
         {
             JsonDrivenHelper.EnsureAllFieldsAreValid(shared, "_path", "database_name", "database2_name", "collection_name", "collection2_name", "tests");
             JsonDrivenHelper.EnsureAllFieldsAreValid(test, "description", "minServerVersion", "topology", "target", "changeStreamPipeline", "changeStreamOptions", "operations", "expectations", "result", "async");

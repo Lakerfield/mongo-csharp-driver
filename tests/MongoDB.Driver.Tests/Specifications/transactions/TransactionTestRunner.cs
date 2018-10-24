@@ -61,11 +61,11 @@ namespace MongoDB.Driver.Tests.Specifications.transactions
         public void Run(JsonDrivenTestCase testCase)
         {
             RequireServer.Check().Supports(Feature.Transactions).ClusterType(ClusterType.ReplicaSet);
-            Run(testCase.Shared, testCase.Test);
+            RunImpl(testCase.Shared, testCase.Test);
         }
 
         // private methods
-        private void Run(BsonDocument shared, BsonDocument test)
+        private void RunImpl(BsonDocument shared, BsonDocument test)
         {
             if (test.Contains("skipReason"))
             {

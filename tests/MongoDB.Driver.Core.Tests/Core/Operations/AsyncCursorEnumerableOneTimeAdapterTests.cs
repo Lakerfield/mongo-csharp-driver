@@ -29,7 +29,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new AsyncCursorEnumerableOneTimeAdapter<BsonDocument>(null, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("cursor");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("cursor");
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => subject.GetEnumerator();
 
-            action.ShouldThrow<InvalidOperationException>();
+            action.Should().Throw<InvalidOperationException>();
         }
     }
 }

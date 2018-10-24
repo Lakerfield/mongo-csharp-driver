@@ -37,7 +37,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new DatabaseExistsOperation(null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new DatabaseExistsOperation(_databaseNamespace, null);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

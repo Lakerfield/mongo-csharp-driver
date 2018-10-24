@@ -42,7 +42,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new InsertOpcodeOperation<BsonDocument>(null, _documents, BsonDocumentSerializer.Instance, _messageEncoderSettings);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace MongoDB.Driver.Core.Operations
 #pragma warning disable 618
             Action act = () => new InsertOpcodeOperation<BsonDocument>(_collectionNamespace, (BatchableSource<BsonDocument>)null, BsonDocumentSerializer.Instance, _messageEncoderSettings);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
 #pragma warning restore
         }
 
@@ -60,7 +60,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new InsertOpcodeOperation<BsonDocument>(_collectionNamespace, _documents, null, _messageEncoderSettings);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action act = () => new InsertOpcodeOperation<BsonDocument>(_collectionNamespace, _documents, BsonDocumentSerializer.Instance, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

@@ -60,7 +60,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => new BsonChunkPool(1, chunkSize);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("chunkSize");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("chunkSize");
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => new BsonChunkPool(-1, 16);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("maxChunkCount");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("maxChunkCount");
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => BsonChunkPool.Default = null;
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -163,7 +163,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.GetChunk(1);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonChunkPool");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonChunkPool");
         }
 
         [Fact]
@@ -221,7 +221,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Bytes; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("DisposableChunk");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("DisposableChunk");
         }
 
         [Fact]
@@ -314,7 +314,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Fork();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("DisposableChunk");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("DisposableChunk");
         }
 
         // nested types

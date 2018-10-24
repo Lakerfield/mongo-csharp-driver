@@ -43,10 +43,10 @@ namespace MongoDB.Driver.Core.Bindings
         }
 
         [Theory]
-        [InlineData(-1, -1, true)]
-        [InlineData(CoreTransactionState.Aborted, -1, true)]
-        [InlineData(CoreTransactionState.Committed, -1, true)]
-        [InlineData(CoreTransactionState.InProgress, -1, false)]
+        [InlineData((CoreTransactionState)(-1), (CoreTransactionState)(-1), true)]
+        [InlineData(CoreTransactionState.Aborted, (CoreTransactionState)(-1), true)]
+        [InlineData(CoreTransactionState.Committed, (CoreTransactionState)(-1), true)]
+        [InlineData(CoreTransactionState.InProgress, (CoreTransactionState)(-1), false)]
         [InlineData(CoreTransactionState.InProgress, CoreTransactionState.Aborted, false)]
         [InlineData(CoreTransactionState.InProgress, CoreTransactionState.Committed, false)]
         [InlineData(CoreTransactionState.InProgress, CoreTransactionState.InProgress, false)]

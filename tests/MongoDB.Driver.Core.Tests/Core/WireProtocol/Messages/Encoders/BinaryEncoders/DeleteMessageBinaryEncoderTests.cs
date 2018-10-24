@@ -64,7 +64,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
             using (var stream = new MemoryStream())
             {
                 Action action = () => new DeleteMessageBinaryEncoder(stream, __messageEncoderSettings);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -72,7 +72,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
         public void Constructor_should_throw_if_stream_is_null()
         {
             Action action = () => new DeleteMessageBinaryEncoder(null, __messageEncoderSettings);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Theory]
@@ -128,7 +128,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders
             {
                 var subject = new DeleteMessageBinaryEncoder(stream, null);
                 Action action = () => subject.WriteMessage(null);
-                action.ShouldThrow<ArgumentNullException>();
+                action.Should().Throw<ArgumentNullException>();
             }
         }
 

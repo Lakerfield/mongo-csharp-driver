@@ -41,7 +41,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionPoolSettings(maintenanceInterval: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("maintenanceInterval");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("maintenanceInterval");
         }
 
         [Theory]
@@ -52,7 +52,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionPoolSettings(maxConnections: maxConnections);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("maxConnections");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("maxConnections");
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionPoolSettings(minConnections: -1);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("minConnections");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("minConnections");
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionPoolSettings(waitQueueSize: -1);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("waitQueueSize");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("waitQueueSize");
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new ConnectionPoolSettings(waitQueueTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("waitQueueTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("waitQueueTimeout");
         }
 
         [Fact]

@@ -174,7 +174,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, binding, async);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("binding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("binding");
         }
 
         [Fact]

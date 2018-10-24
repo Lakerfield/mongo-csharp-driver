@@ -44,14 +44,14 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages
         public void Constructor_with_negative_batchSize_should_throw()
         {
             Action action = () => new GetMoreMessage(_requestId, _collectionNamespace, _cursorId, -1);
-            action.ShouldThrow<ArgumentOutOfRangeException>();
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Fact]
         public void Constructor_with_null_collectionNamespace_should_throw()
         {
             Action action = () => new GetMoreMessage(_requestId, null, _cursorId, _batchSize);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

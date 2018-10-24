@@ -33,14 +33,14 @@ namespace MongoDB.Driver
         public void Constructor_should_throw_if_name_is_null()
         {
             Action action = () => new Tag(null, "value");
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_should_throw_if_value_is_null()
         {
             Action action = () => new Tag("name", null);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]

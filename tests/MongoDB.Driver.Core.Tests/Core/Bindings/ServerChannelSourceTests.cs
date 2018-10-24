@@ -45,7 +45,7 @@ namespace MongoDB.Driver.Core.Bindings
             var session = new Mock<ICoreSessionHandle>().Object;
             Action act = () => new ServerChannelSource(null, session);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace MongoDB.Driver.Core.Bindings
         {
             Action act = () => new ServerChannelSource(_mockServer.Object, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace MongoDB.Driver.Core.Bindings
                 act = () => subject.GetChannel(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]

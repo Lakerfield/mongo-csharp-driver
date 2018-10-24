@@ -29,7 +29,7 @@ namespace MongoDB.Driver.Core.Connections
         {
             Action act = () => new BuildInfoResult(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

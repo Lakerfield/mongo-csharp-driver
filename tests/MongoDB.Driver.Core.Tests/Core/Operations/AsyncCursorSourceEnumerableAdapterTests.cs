@@ -30,7 +30,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new AsyncCursorSourceEnumerableAdapter<BsonDocument>(null, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("source");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("source");
         }
 
         [Theory]

@@ -133,7 +133,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern(mode: "");
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("mode");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("mode");
         }
 
         [Fact]
@@ -141,7 +141,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern(mode: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("mode");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("mode");
         }
 
         [Fact]
@@ -174,7 +174,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern(-1);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("w");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("w");
         }
 
         [Theory]
@@ -248,7 +248,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern(wTimeout: TimeSpan.FromSeconds(-1));
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("wTimeout");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("wTimeout");
         }
 
         [Theory]
@@ -659,7 +659,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern.WCount(-1);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("w");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("w");
         }
 
         [Fact]
@@ -731,7 +731,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern.WMode("");
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("mode");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("mode");
         }
 
         [Fact]
@@ -739,7 +739,7 @@ namespace MongoDB.Driver
         {
             Action action = () => new WriteConcern.WMode(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("mode");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("mode");
         }
 
         [Fact]

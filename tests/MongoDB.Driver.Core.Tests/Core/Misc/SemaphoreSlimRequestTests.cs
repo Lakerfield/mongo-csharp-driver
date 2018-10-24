@@ -52,7 +52,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action action = () => new SemaphoreSlimRequest(null, CancellationToken.None);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("semaphore");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("semaphore");
         }
 
         [Fact]

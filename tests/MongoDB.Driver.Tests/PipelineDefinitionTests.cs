@@ -36,7 +36,7 @@ namespace MongoDB.Driver.Tests
 
             Action act = () => new PipelineStagePipelineDefinition<Person, Person>(stages);
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace MongoDB.Driver.Tests
 
             Action act = () => new PipelineStagePipelineDefinition<Person, Person>(stages);
 
-            act.ShouldNotThrow<ArgumentException>();
+            act.Should().NotThrow<ArgumentException>();
         }
 
         private void Assert<TDocument>(ProjectionDefinition<TDocument> projection, string expectedJson)

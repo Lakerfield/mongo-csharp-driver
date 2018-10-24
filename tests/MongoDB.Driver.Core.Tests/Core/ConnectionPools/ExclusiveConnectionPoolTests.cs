@@ -65,7 +65,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPool(null, _endPoint, _settings, _mockConnectionFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPool(_serverId, null, _settings, _mockConnectionFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPool(_serverId, _endPoint, null, _mockConnectionFactory.Object, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPool(_serverId, _endPoint, _settings, null, _capturedEvents);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -97,7 +97,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => new ExclusiveConnectionPool(_serverId, _endPoint, _settings, _mockConnectionFactory.Object, null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]
@@ -116,7 +116,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
                 act = () => _subject.AcquireConnection(CancellationToken.None);
             }
 
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
 
         [Theory]
@@ -137,7 +137,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
                 act = () => _subject.AcquireConnection(CancellationToken.None);
             }
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]
@@ -320,7 +320,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
                 act = () => _subject.AcquireConnection(CancellationToken.None);
             }
 
-            act.ShouldThrow<TimeoutException>();
+            act.Should().Throw<TimeoutException>();
 
             _capturedEvents.Next().Should().BeOfType<ConnectionPoolCheckingOutConnectionEvent>();
             _capturedEvents.Next().Should().BeOfType<ConnectionPoolCheckingOutConnectionFailedEvent>();
@@ -352,7 +352,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
             _subject.Dispose();
 
             Action act = () => connection2.Dispose();
-            act.ShouldNotThrow();
+            act.Should().NotThrow();
 
             _capturedEvents.Next().Should().BeOfType<ConnectionPoolCheckingInConnectionEvent>();
             _capturedEvents.Next().Should().BeOfType<ConnectionPoolCheckedInConnectionEvent>();
@@ -369,7 +369,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
         {
             Action act = () => _subject.Clear();
 
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -379,7 +379,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
 
             Action act = () => _subject.Clear();
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Theory]
@@ -412,7 +412,7 @@ namespace MongoDB.Driver.Core.ConnectionPools
 
             Action act = () => _subject.Initialize();
 
-            act.ShouldThrow<ObjectDisposedException>();
+            act.Should().Throw<ObjectDisposedException>();
         }
 
         [Fact]

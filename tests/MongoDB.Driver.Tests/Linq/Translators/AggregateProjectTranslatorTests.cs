@@ -1253,7 +1253,7 @@ namespace MongoDB.Driver.Tests.Linq.Translators
         {
             RequireServer.Check().VersionGreaterThanOrEqualTo("3.3.6");
 
-            var result = Project(x => new { Result = x.A.Split('e') });
+            var result = Project(x => new { Result = x.A.Split('e', StringSplitOptions.None) });
             result.Projection.Should().Be("{ Result: { \"$split\": [\"$A\", \"e\" ] }, _id: 0 }");
             result.Value.Result.Should().BeEquivalentTo("Aw", "som", "");
 
@@ -1359,7 +1359,7 @@ namespace MongoDB.Driver.Tests.Linq.Translators
         {
             Action act = () => Project(x => new { Result = x.B.Equals("balloon", comparison) });
 
-            act.ShouldThrow<NotSupportedException>();
+            act.Should().Throw<NotSupportedException>();
         }
 
         [Fact]

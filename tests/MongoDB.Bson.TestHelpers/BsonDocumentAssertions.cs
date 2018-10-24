@@ -75,7 +75,7 @@ namespace MongoDB.Bson.TestHelpers
             return NotBe(expected, because, reasonArgs);
         }
 
-        protected override string Context
+        protected override string Identifier
         {
             get { return "BsonDocument"; }
         }

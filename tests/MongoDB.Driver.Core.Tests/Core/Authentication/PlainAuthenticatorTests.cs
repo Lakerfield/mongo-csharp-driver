@@ -44,7 +44,7 @@ namespace MongoDB.Driver.Core.Authentication
         {
             Action act = () => new PlainAuthenticator(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]
@@ -69,7 +69,7 @@ namespace MongoDB.Driver.Core.Authentication
                 act = () => subject.Authenticate(connection, __description, CancellationToken.None);
             }
 
-            act.ShouldThrow<MongoAuthenticationException>();
+            act.Should().Throw<MongoAuthenticationException>();
         }
 
         [Theory]
@@ -98,7 +98,7 @@ namespace MongoDB.Driver.Core.Authentication
                 act = () => subject.Authenticate(connection, __description, CancellationToken.None);
             }
 
-            act.ShouldNotThrow();
+            act.Should().NotThrow();
             SpinWait.SpinUntil(() => connection.GetSentMessages().Count >= 1, TimeSpan.FromSeconds(5)).Should().BeTrue();
 
             var sentMessages = MessageHelper.TranslateMessagesToBsonDocuments(connection.GetSentMessages());

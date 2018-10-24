@@ -73,7 +73,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => new EvalOperation(null, function, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new EvalOperation(_adminDatabaseNamespace, null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -230,7 +230,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, null, async);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [SkippableTheory]

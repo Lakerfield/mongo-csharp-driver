@@ -50,7 +50,7 @@ namespace MongoDB.Driver.Core.Async
         public void Constructor_should_throw_if_clock_is_null()
         {
             Action act = () => new Metronome(_period, null);
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace MongoDB.Driver.Core.Async
         {
             var period = TimeSpan.FromMilliseconds(-2);
             Action act = () => new Metronome(period);
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]

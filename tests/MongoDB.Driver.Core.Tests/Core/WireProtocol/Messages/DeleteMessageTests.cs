@@ -44,14 +44,14 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages
         public void Constructor_with_null_collectionName_should_throw()
         {
             Action action = () => new DeleteMessage(_requestId, null, _query, _isMulti);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_with_null_query_should_throw()
         {
             Action action = () => new DeleteMessage(_requestId, _collectionNamespace, null, _isMulti);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

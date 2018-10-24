@@ -141,7 +141,7 @@ namespace MongoDB.Bson.Serialization.IdGenerators
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static int GetCurrentProcessId()
         {
-            return Process.GetCurrentProcess().Id;
+            return System.Diagnostics.Process.GetCurrentProcess().Id;
         }
 
         private static byte[] GetMachineHash()

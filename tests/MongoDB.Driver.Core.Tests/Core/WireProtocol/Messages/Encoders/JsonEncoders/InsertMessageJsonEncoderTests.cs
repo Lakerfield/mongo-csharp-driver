@@ -70,7 +70,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new InsertMessageJsonEncoder<BsonDocument>(textReader, textWriter, __messageEncoderSettings, __serializer);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -80,7 +80,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textReader = new StringReader(""))
             {
                 Action action = () => new InsertMessageJsonEncoder<BsonDocument>(textReader, null, __messageEncoderSettings, __serializer);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -90,7 +90,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new InsertMessageJsonEncoder<BsonDocument>(null, textWriter, __messageEncoderSettings, __serializer);
-                action.ShouldNotThrow();
+                action.Should().NotThrow();
             }
         }
 
@@ -98,7 +98,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
         public void Constructor_should_throw_if_textReader_and_textWriter_are_both_null()
         {
             Action action = () => new InsertMessageJsonEncoder<BsonDocument>(null, null, __messageEncoderSettings, __serializer);
-            action.ShouldThrow<ArgumentException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -108,7 +108,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             using (var textWriter = new StringWriter())
             {
                 Action action = () => new InsertMessageJsonEncoder<BsonDocument>(textReader, textWriter, __messageEncoderSettings, null);
-                action.ShouldThrow<ArgumentNullException>();
+                action.Should().Throw<ArgumentNullException>();
             }
         }
 
@@ -136,7 +136,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             {
                 var subject = new InsertMessageJsonEncoder<BsonDocument>(null, textWriter, __messageEncoderSettings, __serializer);
                 Action action = () => subject.ReadMessage();
-                action.ShouldThrow<InvalidOperationException>();
+                action.Should().Throw<InvalidOperationException>();
             }
         }
 
@@ -147,7 +147,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             {
                 var subject = new InsertMessageJsonEncoder<BsonDocument>(textReader, null, __messageEncoderSettings, __serializer);
                 Action action = () => subject.WriteMessage(__testMessage);
-                action.ShouldThrow<InvalidOperationException>();
+                action.Should().Throw<InvalidOperationException>();
             }
         }
 
@@ -158,7 +158,7 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders
             {
                 var subject = new InsertMessageJsonEncoder<BsonDocument>(null, textWriter, __messageEncoderSettings, __serializer);
                 Action action = () => subject.WriteMessage(null);
-                action.ShouldThrow<ArgumentNullException>();
+                action.Should().Throw<ArgumentNullException>();
             }
         }
 

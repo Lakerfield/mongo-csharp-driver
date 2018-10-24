@@ -43,7 +43,7 @@ namespace MongoDB.Driver.Core.Configuration
         {
             Action action = () => new SslStreamSettings(clientCertificates: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("clientCertificates");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("clientCertificates");
         }
 
         [Fact]

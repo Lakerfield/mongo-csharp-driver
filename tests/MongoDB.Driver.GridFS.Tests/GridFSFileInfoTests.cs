@@ -200,7 +200,7 @@ namespace MongoDB.Driver.GridFS.Tests
 
             Action action = () => { var id = subject.Id; };
 
-            action.ShouldThrow<InvalidCastException>();
+            action.Should().Throw<InvalidCastException>();
         }
 
         [Fact]

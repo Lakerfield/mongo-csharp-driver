@@ -41,7 +41,7 @@ namespace MongoDB.Driver
                 result = subject.Deserialize(context);
             }
 
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Fact]

@@ -103,7 +103,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => CreateSubject(batchSize: value);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("batchSize");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("batchSize");
         }
 
         [Fact]
@@ -111,7 +111,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => CreateSubject(collectionNamespace: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [Fact]
@@ -119,7 +119,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => CreateSubject(firstBatch: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("firstBatch");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("firstBatch");
         }
 
         [Theory]
@@ -130,7 +130,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => CreateSubject(limit: value);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("limit");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("limit");
         }
 
         [Fact]
@@ -138,7 +138,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => CreateSubject(query: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("query");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("query");
         }
 
         [Fact]
@@ -146,7 +146,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => CreateSubject(serializer: null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("serializer");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("serializer");
         }
 
         [Fact]

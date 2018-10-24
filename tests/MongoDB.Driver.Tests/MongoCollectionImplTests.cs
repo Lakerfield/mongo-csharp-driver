@@ -2952,7 +2952,7 @@ namespace MongoDB.Driver
 
             for (int i = 0; i < expectedRequests.Length; i++)
             {
-                actualRequests[i].ShouldBeEquivalentTo(expectedRequests[i]);
+                actualRequests[i].Should().BeEquivalentTo(expectedRequests[i]);
             }
         }
 

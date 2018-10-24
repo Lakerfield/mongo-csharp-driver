@@ -39,7 +39,7 @@ namespace MongoDB.Driver.GridFS.Tests
         {
             Action action = () => new GridFSFileNotFoundException(null, 1);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("filename");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("filename");
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace MongoDB.Driver.GridFS.Tests
         {
             Action action = () => new GridFSFileNotFoundException(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("id");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("id");
         }
     }
 }

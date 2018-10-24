@@ -39,7 +39,7 @@ namespace MongoDB.Driver.Core.Clusters
         {
             Action act = () => new ReplicaSetConfig(null, _name, _endPoints[0], _version);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

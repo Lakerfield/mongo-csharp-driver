@@ -50,21 +50,21 @@ namespace MongoDB.Driver.Core.WireProtocol.Messages
         public void Constructor_with_null_collectionNamespace_should_throw()
         {
             Action action = () => new UpdateMessage(_requestId, null, _query, _update, _updateValidator, false, false);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_with_null_query_should_throw()
         {
             Action action = () => new UpdateMessage(_requestId, _collectionNamespace, null, _update, _updateValidator, false, false);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_with_null_update_should_throw()
         {
             Action action = () => new UpdateMessage(_requestId, _collectionNamespace, _query, null, _updateValidator, false, false);
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

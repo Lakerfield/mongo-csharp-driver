@@ -41,7 +41,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new ExplainOperation(null, _command, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new ExplainOperation(_databaseNamespace, null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new ExplainOperation(_databaseNamespace, _command, null);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

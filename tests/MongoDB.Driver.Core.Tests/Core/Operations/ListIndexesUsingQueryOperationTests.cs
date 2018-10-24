@@ -55,7 +55,7 @@ namespace MongoDB.Driver.Core.Operations
         {
             Action action = () => new ListIndexesUsingQueryOperation(null, _messageEncoderSettings);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("collectionNamespace");
         }
 
         [SkippableTheory]
@@ -117,7 +117,7 @@ namespace MongoDB.Driver.Core.Operations
 
             Action action = () => ExecuteOperation(subject, binding, async);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("binding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("binding");
         }
 
         [Fact]

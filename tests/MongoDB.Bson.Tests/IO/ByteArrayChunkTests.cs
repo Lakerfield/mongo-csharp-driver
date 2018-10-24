@@ -46,7 +46,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => { var _ = subject.Bytes; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteArrayChunk");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteArrayChunk");
         }
 
         [Theory]
@@ -70,7 +70,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => new ByteArrayChunk(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("bytes");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("bytes");
         }
 
         [Theory]
@@ -92,7 +92,7 @@ namespace MongoDB.Bson.Tests.IO
         {
             Action action = () => new ByteArrayChunk(-1);
 
-            action.ShouldThrow<ArgumentOutOfRangeException>().And.ParamName.Should().Be("size");
+            action.Should().Throw<ArgumentOutOfRangeException>().And.ParamName.Should().Be("size");
         }
 
         [Fact]
@@ -162,7 +162,7 @@ namespace MongoDB.Bson.Tests.IO
 
             Action action = () => subject.Fork();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("ByteArrayChunk");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("ByteArrayChunk");
         }
 
         // nested types

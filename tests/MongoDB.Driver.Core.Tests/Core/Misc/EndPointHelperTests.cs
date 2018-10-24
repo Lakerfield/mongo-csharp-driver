@@ -51,7 +51,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => EndPointHelper.Parse(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]
@@ -63,7 +63,7 @@ namespace MongoDB.Driver.Core.Misc
         {
             Action act = () => EndPointHelper.Parse(value);
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]

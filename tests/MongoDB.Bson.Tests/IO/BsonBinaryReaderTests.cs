@@ -139,7 +139,7 @@ namespace MongoDB.Bson.Tests.IO
             {
                 Action action = () => BsonSerializer.Deserialize<BsonDocument>(subject);
 
-                action.ShouldThrow<FormatException>().WithMessage(expectedMessage);
+                action.Should().Throw<FormatException>().WithMessage(expectedMessage);
             }
         }
 

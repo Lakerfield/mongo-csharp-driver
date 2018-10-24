@@ -39,7 +39,7 @@ namespace MongoDB.Driver.Core.Connections
         {
             Action act = () => new TcpStreamFactory(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Theory]
@@ -60,7 +60,7 @@ namespace MongoDB.Driver.Core.Connections
                 act = () => subject.CreateStream(new DnsEndPoint("not-gonna-exist-i-hope", 27017), CancellationToken.None);
             }
 
-            act.ShouldThrow<SocketException>();
+            act.Should().Throw<SocketException>();
         }
 
         [Theory]
@@ -83,7 +83,7 @@ namespace MongoDB.Driver.Core.Connections
                 action = () => subject.CreateStream(endPoint, cancellationTokenSource.Token);
             }
 
-            action.ShouldThrow<OperationCanceledException>();
+            action.Should().Throw<OperationCanceledException>();
         }
 
         [Theory]
@@ -106,7 +106,7 @@ namespace MongoDB.Driver.Core.Connections
                 action = () => subject.CreateStream(endPoint, CancellationToken.None);
             }
 
-            action.ShouldThrow<TimeoutException>();
+            action.Should().Throw<TimeoutException>();
         }
 
         [SkippableTheory]

@@ -51,7 +51,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.BaseStream; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
 #if NET45
@@ -90,7 +90,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.BeginRead(buffer, offset, count, mockCallback.Object, state);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 #endif
 
@@ -130,7 +130,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.BeginWrite(buffer, offset, count, mockCallback.Object, state);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 #endif
 
@@ -159,7 +159,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.CanRead; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -187,7 +187,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.CanSeek; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -215,7 +215,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.CanTimeout; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -243,7 +243,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.CanWrite; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
 #if NET45
@@ -309,7 +309,7 @@ namespace MongoDB.Bson.Tests
         {
             Action action = () => new BsonStreamAdapter(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("stream");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("stream");
         }
 
         [Fact]
@@ -341,7 +341,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.CopyToAsync(mockDestination.Object, bufferSize, cancellationToken);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -427,7 +427,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.EndRead(mockAsyncResult.Object);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 #endif
 
@@ -456,7 +456,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.EndWrite(mockAsyncResult.Object);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 #endif
 
@@ -480,7 +480,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.Flush();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -508,7 +508,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.FlushAsync(cancellationToken);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -536,7 +536,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.Length; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -564,7 +564,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.Position; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -590,7 +590,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { subject.Position = 0; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -622,7 +622,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.Read(buffer, offset, count);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -656,7 +656,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadAsync(buffer, offset, count, cancellationToken);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -681,7 +681,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadByte();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -708,7 +708,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadCString(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("encoding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("encoding");
         }
 
         [Fact]
@@ -720,7 +720,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadCString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -748,7 +748,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadCStringBytes();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -762,7 +762,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadCStringBytes();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Theory]
@@ -794,7 +794,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadDecimal128();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -823,7 +823,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadDouble();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -863,7 +863,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadInt32();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -903,7 +903,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadInt64();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -942,7 +942,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadObjectId();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -969,7 +969,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadSlice();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
 
@@ -997,7 +997,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadString(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("encoding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("encoding");
         }
 
         [Fact]
@@ -1009,7 +1009,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1021,7 +1021,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.ReadString(Utf8Encodings.Strict);
 
-            action.ShouldThrow<FormatException>();
+            action.Should().Throw<FormatException>();
         }
 
         [Theory]
@@ -1049,7 +1049,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.ReadTimeout; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -1075,7 +1075,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { subject.ReadTimeout = 0; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1105,7 +1105,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.Seek(offset, origin);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1130,7 +1130,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.SetLength(length);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -1157,7 +1157,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.SkipCString();
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1169,7 +1169,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.SkipCString();
 
-            action.ShouldThrow<EndOfStreamException>();
+            action.Should().Throw<EndOfStreamException>();
         }
 
         [Fact]
@@ -1198,7 +1198,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.Write(buffer, offset, count);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1233,7 +1233,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteAsync(buffer, offset, count, cancellationToken);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1258,7 +1258,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteByte(value);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1271,7 +1271,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteCString(value);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1283,7 +1283,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteCString(value);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -1301,7 +1301,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteCString(value);
 
-            action.ShouldThrow<ArgumentException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentException>().And.ParamName.Should().Be("value");
         }
 
         [Fact]
@@ -1312,7 +1312,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteCString(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -1358,7 +1358,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteCStringBytes(value);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1369,7 +1369,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteCStringBytes(null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -1414,7 +1414,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteDecimal128(Decimal128.Zero);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -1441,7 +1441,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteDouble(1.0);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1466,7 +1466,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteInt32(1);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -1506,7 +1506,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteInt64(1);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -1546,7 +1546,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteObjectId(ObjectId.Empty);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1571,7 +1571,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteString(value, null);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("encoding");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("encoding");
         }
 
         [Fact]
@@ -1584,7 +1584,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteString(value, Utf8Encodings.Strict);
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Fact]
@@ -1595,7 +1595,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => subject.WriteString(null, Utf8Encodings.Strict);
 
-            action.ShouldThrow<ArgumentNullException>().And.ParamName.Should().Be("value");
+            action.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("value");
         }
 
         [Theory]
@@ -1660,7 +1660,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { var _ = subject.WriteTimeout; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         [Theory]
@@ -1686,7 +1686,7 @@ namespace MongoDB.Bson.Tests
 
             Action action = () => { subject.WriteTimeout = 0; };
 
-            action.ShouldThrow<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
+            action.Should().Throw<ObjectDisposedException>().And.ObjectName.Should().Be("BsonStreamAdapter");
         }
 
         // nested types
