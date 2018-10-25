@@ -261,7 +261,7 @@ Task("Package")
 Task("PackageReleaseZipFile")
     .IsDependentOn("BuildNet45")
     .IsDependentOn("BuildNetStandard15")
-    .IsDependentOn("ApiDocs")
+    //.IsDependentOn("ApiDocs")
     .Does(() =>
     {
         var assemblySemVer = gitVersion.AssemblySemVer; // e.g. 2.4.4.0
